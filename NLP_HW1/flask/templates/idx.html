@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>NLP hw1</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+		<script type="text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script type="text/javascript" src = "../static/js/control.js"></script>
+	</head>
+	<body>
+		<div style = "height:100%;">
+			<div class = 'parallax first_question'>
+				<div class = "title"><h1>Question 1</h1></div>
+				<div class = "content">
+					<ul>
+						<span class = "q1" style = "font-family:monospace;font-size:20px"><li>John put a book on the table.</li> <button>Click</button><br></span>
+						<span class = "q1" style = "font-family:monospace;font-size:20px"><li>John put a book on the table in the classroom.</li><button>Click</button><br></span>
+						<span class = "q1" style = "font-family:monospace;font-size:20px"><li>John put a book on the table in the classroom in the science building.</li><button>Click</button><br></span>
+						<span class = "q1" style = "font-family:monospace;font-size:20px"><li>John put a book on the table in the classroom in the science building on campus.</li><button>Click</button><br></span>
+					</ul>
+				</div>
+				<div class = "pic">
+					<br>
+					<img src= "../static/fsa_pic/1.png" />
+				</div>
+			</div>
+			
+			<div class = 'parallax second_question'>
+				<div class = "title"><h1>Question 2</h1></div>
+				<div class = "content">
+					<ul>
+						<span class = "q2" style = "font-family:monospace;font-size:20px"><li>John read a book.</li><button>Click</button><br></span>
+						<span class = "q2" style = "font-family:monospace;font-size:20px"><li>John read a book that the famous writer wrote.</li><button>Click</button><br></span>
+						<span class = "q2" style = "font-family:monospace;font-size:20px"><li>John read a book that the famous writer that many students liked wrote.</li><button>Click</button><br></span>
+						<span class = "q2" style = "font-family:monospace;font-size:20px"><li>John read a book that the famous writer that many students that my superviser taught liked wrote.</li><button>Click</button><br></span>
+						<span class = "q2" style = "font-family:monospace;font-size:20px"><li>John read a book that the famous writer that many students that my superviser that many colleagues respected taught liked wrote.</li><button>Click</button><br></span>
+					</ul>
+				</div>
+				<div class = "pic">
+					<br>
+					<img src= "../static/fsa_pic/2.png" />
+				</div>
+			</div>
+			
+			<div class = 'parallax third_question'>
+				<div class = "title"><h1>Question 3</h1></div>
+				<div class = "content">
+					<ul>
+						<span class = "q3" style = "font-family:monospace;font-size:20px"><li>John knows that he is very smart.</li><button>Click</button><br></span>
+						<span class = "q3" style = "font-family:monospace;font-size:20px"><li>Mary thinks that John knows that he is very smart.</li><button>Click</button><br></span>
+						<span class = "q3" style = "font-family:monospace;font-size:20px"><li>Sue believes that Mary thinks that John knows that he is very smart.</li><button>Click</button><br></span>
+						<span class = "q3" style = "font-family:monospace;font-size:20px"><li>Sam realizes that Sue believes that Mary thinks that John knows that he is smart.</li><button>Click</button><br></span>
+					</ul>
+				</div>
+				<div class = "pic">
+					<br>
+					<img src= "../static/fsa_pic/3.png" />
+				</div>
+			</div>
+		</div>
+		<div id="dialog" title="Result Dialog">
+			<p id = "result_string"></p>
+		</div>
+	</body>
+</html>

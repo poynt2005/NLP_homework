@@ -1,0 +1,244 @@
+
+.main-content{
+	height : 50vh;
+	background-attachment:fixed;
+	background-size : cover;
+	overflow:hidden;
+}
+
+ /*content div*/
+.start-div {
+	background-image : url("../src/div-1.jpg");
+	
+}
+.title-div {
+	background-image : url("../src/div-0.jpg");
+}
+
+.home-div {
+	background-image : url("../src/div-2.jpg");
+}
+ /*--------------*/
+
+.title {
+	text-align : center;
+}
+.title-content {
+	text-align : center;
+	animation-name: moveText-left; 
+	animation-duration: .5s; 
+	animation-timing-function: ease;
+	-webkit-animation-name: moveText-left; 
+	-webkit-animation-duration: .5s; 
+	-webkit-animation-timing-function: ease;
+	-o-animation-name: moveText-left;
+	-o-animation-duration: .5s; 
+	-o-animation-timing-function: ease;
+	-moz-animation-name: moveText-left; 
+	-moz-animation-duration: .5s; 
+	-moz-animation-timing-function: ease;
+}
+
+
+.start-btn {
+	text-align : center;
+	top : 25%;
+	position : relative;
+	
+	animation-name: moveText-buttom; 
+	animation-duration: 1.5s; 
+	animation-timing-function: ease;
+	-webkit-animation-name: moveText-buttom; 
+	-webkit-animation-duration: 1.5s; 
+	-webkit-animation-timing-function: ease-out;
+	-o-animation-name: moveText-buttom; 
+	-o-animation-duration: 1.5s; 
+	-o-animation-timing-function: ease-out;
+	-moz-animation-name: moveText-buttom; 
+	-moz-animation-duration: 1.5s; 
+	-moz-animation-timing-function: ease-out;
+	
+	
+}
+
+.start-div-content {
+	text-align : center;
+	top : 3vh;
+	position : relative;
+	color : white;
+	font-size:20px;
+	
+	animation-name: moveText-right; 
+	animation-duration: 1s; 
+	animation-timing-function: ease;
+	-webkit-animation-name: moveText-right; 
+	-webkit-animation-duration: 1s; 
+	-webkit-animation-timing-function: ease;
+	-o-animation-name: moveText-right; 
+	-o-animation-duration: 1s; 
+	-o-animation-timing-function: ease;
+	-moz-animation-name: moveText-right; 
+	-moz-animation-duration: 1s; 
+	-moz-animation-timing-function: ease;
+}
+
+
+
+
+/*button css*/
+
+.btn {
+	text-decoration: none;
+	background-color : #99ccff;
+	color : white;
+	margin : 10px 10px;
+	padding : 10px 60px ;
+	display: inline-block;
+	box-shadow : 0px 1px 5px rgb(51, 51, 0);
+	font-family : "Lobster Two";
+	font-size : 18px;
+	border-radius : 8px;
+	cursor : pointer;
+}
+
+#get-start {
+	position: relative;
+}
+
+#get-start:hover::before , #get-start:hover::after {
+	position: realtive;
+}
+#get-start:hover::before {
+	content : "[";
+	font-size : 30px;
+	left : -10px;
+}
+#get-start:hover::after {
+	content : "]";
+	font-size : 30px;
+	left : -10px;
+}
+.btn:hover{
+	background-color : white;
+	color : black;
+}
+.btn:active {
+	background-color : #9fdf9f;
+	box-shadow : 0px 1px 5px #88888;
+	transform : translateY(2px);
+}
+/* ----- */
+
+
+
+
+ /*slider effect*/
+.num {
+	top : 0;
+	text-decoration : underline;
+	color : white;
+	font-size : 30px;
+	text-align : center;
+	
+}
+
+.text-info {
+	font-size : 30px;
+	position : relative;
+	color : #f2f2f2;
+	font-family : amarante;
+}
+
+.Slide {
+	display : none;
+}
+
+.prev, .next {
+  cursor: pointer;
+  width: auto;
+  padding: 16px;
+  color: white;
+  border-radius: 0 3px 3px 0;
+}
+
+.effect {
+  animation-name: fade;
+  -webkit-animation-name: fade;
+  -o-animation-name: fade;
+  -moz-animation-name: fade;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+}
+/* ----------- */
+
+/*CSS animation*/
+
+@keyframes fade
+{
+	from {opacity: .4} 
+	to {opacity: 1}
+}
+
+@-webkit-keyframes fade
+{
+	from {-webkit-opacity: .4} 
+	to {-webkit-opacity: 1}
+}
+
+
+@keyframes moveText-buttom {
+	0% {
+    transform: translateY(99999px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+	
+}
+
+@-webkit-keyframes moveText-buttom {
+	0% {
+    transform: translateY(99999px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveText-right {
+  0% {
+    transform: translateX(99999px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes moveText-right {
+  0% {
+    transform: translateX(99999px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveText-left {
+  0% {
+    transform: translateX(-99999px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes moveText-left {
+  0% {
+    transform: translateX(-99999px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

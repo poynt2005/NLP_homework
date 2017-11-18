@@ -1,0 +1,52 @@
+body{
+	background-color : #ffe6ff;
+}
+button{
+	background-color : #4d4dff;
+	color : white;
+	padding : 8px  20px;
+	border : none;
+	border-radius : 7px;
+	box-shadow : 2px 3px 2px #888888;
+	cursor : pointer;
+}
+button:hover{
+	background-color : #b3b3ff;
+	color : black;
+}
+button:active{
+	background-color : #4d4dff;
+	color : white;
+	box-shadow : 2px 3px 2px;
+	transform: translateX(2px) translateY(3px);;
+}
+.parallax{
+	background-attachment:fixed;
+	background-repeat : no-repeat;
+	background-size : cover;
+}
+
+.first_question{
+	background-image : url(../pic/1.jpg);
+}
+
+.second_question{
+	background-image : url(../pic/2.jpg);
+}
+
+.third_question{
+	background-image : url(../pic/0.jpg);
+}
+.title{
+	position : relative;
+	top:50%;
+	text-align : center;
+}
+.content{
+	position : relative;
+	top:50%;
+
+}
+#dialog{
+	display : none;
+}
