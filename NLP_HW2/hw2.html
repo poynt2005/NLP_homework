@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel = "stylesheet" type = "text/css" href = "css/style.css" />
+    <script src = "https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src = "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <script src = "js/fsa.js"></script>
+    <script src = "js/main.js"></script>
+    <title>NLP homework2</title>
+
+    <!----------- google font and jqueryUI css ---------->
+    <link href="https://fonts.googleapis.com/css?family=UnifrakturCook:700" rel="stylesheet">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <!--------------------------------------------------->
+
+  </head>
+
+  <body>
+    <div class = "title">
+      <h1>NLP homework2</h1>
+    </div>
+
+    <div class = "main-content">
+
+      <div class = "question-content q1-content ">
+        <div class = "info-content">
+          <div class = "q">
+            <h2>第一題</h2>
+            <p>問題 : 假設你在處理發音。漢語中,miàn ‘面’及 kàn ‘看’等詞的 an 唸法不同。請蒐集相關漢字,寫出完整音變的規則</p>
+          </div>
+
+          <div class = "ans">
+            <span>
+              <p style = "font-family: DFKai-sb;font-size:25px;">整理 : </p>
+              <p>
+                1.&emsp;韻母發"ian" : 麵(mian)、建(jian)、縣(xian)、變(bian)、欠(qian) <br>
+                2.&emsp;韻母發"an" : 看(kan)、站(zhan)、善(shan)、漫(man)、半(ban)
+              </p>
+            </span>
+            <span>
+              <p style = "font-family: DFKai-sb;font-size:25px;">說明 : <p>
+              <p>1.&emsp;韻母發"an"的字，如 : 看、站...等等，其讀音近似[an]；而"ian"的字，如 : 麵、建...等等，其讀音近似[iɛn]<p>
+              <p>2.&emsp;參考維基百科的<a target="_blank" href = "https://en.wikibooks.org/wiki/Chinese_(Mandarin)/Pronunciation_of_Finals"><i>"Chinese (Mandarin)/Pronunciation of Finals"</i></a>
+                條目中有提到，韻母"an"，其IPA音標為[an]，<i>"starts with plain continental [a]"</i>，<br>
+                 &emsp;&emsp;與英文中的"stun"以及"fun"韻母相類似；而韻母"ian"，其IPA音標為[i̯ɛn]，類似英文中的"yen"
+              </p>
+              <p>3.&emsp;[an]以及[i̯ɛn]是不同的韻母，所以可以發現在中文字中在"ㄢ"韻之前有"ㄧ"的話，就會發生如這種變音情形<p>
+            </span>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class = "question-content q2-content ">
+        <div class = "info-content">
+          <div class = "q">
+              <h2>第二題</h2>
+              <p>問題 : 利用 FSA 來模擬上述音變,你的 FSA 要能夠辨視、產出正確的發音。(在此,以文字符號代表真正發音)</p>
+          </div>
+          <div id = "FSA-2">
+              <p style = "font-family:fantasy;font-size:20px;">Finite State Automata</p>
+              <img src = "src/fsa-2.png" />
+          </div>
+          <div id = "pinyin-check">
+              <input id = "pinyin-text" type = "text" placeholder="輸入無聲調拼音" />
+              <a id = "get-pinyin" class = "btn">Click</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div id="dialog" title="Result-Dialog">
+      <h2 id = "rythms_detect"></h2>
+			<p id = "result_string"></p>
+		</div>
+
+  </body>
+
+
+</html>

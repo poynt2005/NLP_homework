@@ -1,0 +1,80 @@
+body {
+  background-image: url("../src/div-back.jpg");
+  background-attachment : fixed;
+}
+.title {
+  text-align : center;
+  padding : 70px 30px;
+  background-image : url("../src/title.jpg");
+}
+
+.title h1 {
+  font-family: 'UnifrakturCook', cursive;
+  font-size : 85px;
+  color : white;
+}
+
+.main-content {
+  height : 100vh;
+}
+
+.question-content {
+  background-attachment:fixed;
+}
+
+.info-content {
+  visibility : hidden;
+}
+
+.q h2 {
+  visibility : visible;
+}
+
+
+
+.q1-content {
+  text-align : left;
+  background-image : url("../src/question-div.jpg");
+  background-repeat: no-repeat;
+}
+
+.q2-content {
+  text-align : right;
+  background-image : url("../src/question-div.jpg");
+  background-repeat: no-repeat;
+   background-position: right;
+}
+
+#FSA-2 {
+  right : 15%;
+  position : relative;
+}
+
+#pinyin-text {
+  padding : 8px 30px;
+  outline : none;
+}
+
+#get-pinyin {
+  display : inline-block;
+}
+.btn {
+  margin : 10px 10px;
+  padding : 10px 20px;
+  box-shadow : 0px 1px 5px rgb(51, 51, 0);
+  border-radius : 5px;
+
+  background-color: #b3ffff;
+  background : linear-gradient(top,  #b3ffff 0%, #00e6e6 100%);
+  background : -webkit-linear-gradient(top,  #b3ffff 0%, #00e6e6 100%);
+  background : -o-linear-gradient(top,  #b3ffff 0%, #00e6e6 100%);
+  background : -moz-linear-gradient(top,  #b3ffff 0%, #00e6e6 100%);
+
+  cursor : pointer;
+}
+.btn:hover {
+  background: white;
+}
+.btn:active {
+  transform : translateY(1px);
+}
