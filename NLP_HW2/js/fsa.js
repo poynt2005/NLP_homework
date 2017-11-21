@@ -1,3 +1,4 @@
+'use strict'
 function fsa_pinyin(transition , start_state){
   this.transition = transition;
   this.start_state = start_state;
@@ -10,7 +11,11 @@ fsa_pinyin.prototype.parse =  function(){
 
   let input_str = arguments[0];
 
-
+  if(!(input_str[0])){
+    var tmp = new Array(input_str[1]);
+    input_str = tmp;
+  }
+  
   for(let i = 0 ; i < input_str.length ;i++){
     let info = new String("");
     info = info + ("Current state : " + state);
@@ -25,5 +30,6 @@ fsa_pinyin.prototype.parse =  function(){
     _state_info.push("ian");
   else if(state == 's3')
     _state_info.push("an");
+
   return _state_info;
 };
