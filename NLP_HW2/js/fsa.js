@@ -12,10 +12,15 @@ fsa_pinyin.prototype.parse =  function(){
   let input_str = arguments[0];
 
   if(!(input_str[0])){
-    var tmp = new Array(input_str[1]);
+    var tmp = new Array();
+
+    for(let i of input_str)
+      if(i)
+        tmp.push(i);
+
     input_str = tmp;
   }
-  
+
   for(let i = 0 ; i < input_str.length ;i++){
     let info = new String("");
     info = info + ("Current state : " + state);
