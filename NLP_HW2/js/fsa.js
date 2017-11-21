@@ -31,10 +31,14 @@ fsa_pinyin.prototype.parse =  function(){
   }
 
 
-  if(state == 's2')
+  if(state == 's2'){
+    _state_info.push("Done!");
     _state_info.push("ian");
-  else if(state == 's3')
+  }
+  else if(state == 's3'){
+    _state_info.push("Done!");
     _state_info.push("an");
-
+  }
+  
   return _state_info;
 };
