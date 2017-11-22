@@ -1,25 +1,15 @@
 'use strict'
-function fsa_pinyin(transition , start_state){
+function fsa_pinyin(transition , start_state , callback){
   this.transition = transition;
   this.start_state = start_state;
 };
 
-fsa_pinyin.prototype.parse =  function(){
+fsa_pinyin.prototype.parse =  function(callback){
   let _state_info = [];
   let _trans = this.transition;
   let state = this.start_state;
 
   let input_str = arguments[0];
-
-  if(!(input_str[0])){
-    var tmp = new Array();
-
-    for(let i of input_str)
-      if(i)
-        tmp.push(i);
-
-    input_str = tmp;
-  }
 
   for(let i = 0 ; i < input_str.length ;i++){
     let info = new String("");
@@ -39,6 +29,6 @@ fsa_pinyin.prototype.parse =  function(){
     _state_info.push("Done!");
     _state_info.push("an");
   }
-  
+
   return _state_info;
 };
