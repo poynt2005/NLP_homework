@@ -45,6 +45,10 @@
 	-moz-animation-timing-function: ease;
 }
 
+.title-content p{
+	color: white;
+	font-size: 20px;
+}
 
 .start-btn {
 	text-align : center;
@@ -262,11 +266,30 @@
 
 @media screen and (min-width: 300px) and (max-width : 500px) {
 	.title h1{
-		font-size: 60px;
+		font-size: 45px;
 	}
 	.h-slide-content {
 		top : 10%;
 		position: relative;
+	}
+	.title-content p {
+		font-size: 15px;
+	}
+	.start-div-content {
+		font-size: 15px;
+	}
+	.prev {
+		left: 10%;
+		top : 35%;
+		font-size: 25px;
+		position: absolute;
+	}
+	.next {
+		right: 10%;
+		top : 35%;
+		font-size: 25px;
+		position: absolute;
+
 	}
 }
 /* ---------- */
