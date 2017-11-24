@@ -16,10 +16,12 @@ $(document).ready(function(){
 
     });
 
+
   $("#get-pinyin").click(function(){
+
     var pinyin_text = $("#pinyin-text").val();
 
-    parseRawArray(pinyin_text , function(result){
+    parseRawArray(pinyin_text , (result) => {
       if(result == 0) return;
 
       const trans = {
@@ -47,6 +49,18 @@ $(document).ready(function(){
       else if (rythm == 'ian')
         showdialog(res , "韻母 : [i̯ɛn]");
     });
+  });
+
+  $("#fst-1-1").click(function(){
+     checkPronoun('The girl called you is my friend' , (result) => {
+       showdialog(result , "應填入who");
+     });
+  });
+
+  $("#fst-1-2").click(function(){
+     checkPronoun('The girl you called is my friend' , (result) => {
+       showdialog(result , "應填入whom");
+     });
   });
 
   function parseRawArray(rawText , callback){
@@ -95,12 +109,55 @@ $(document).ready(function(){
     return callback(test_pinyin);
   }
 
-  function showdialog(data , rythm_ipa){
+  function checkPronoun(input_text , callback){
+    var text_array = input_text.split(" ");
+    var pronounTransition = {
+			's0' : {'article' : 's1'},
+			's1' : {'noun' : 's2'},
+			's2' : {'verb' : 's3' , 'pronoun' : 's5'},
+			's3' : {'pronoun' : 's4'},
+			's4' : {'verb' : 's7'},
+			's5' : {'verb' : 's6'},
+			's6' : {'verb' : 's7'},
+			's7' : {'adjective' : 's8'},
+			's8' : {'noun' : 's9'}
+		};
+
+		var outputTransition = {
+			's0' : {'article' : 'NULL'},
+			's1' : {'noun' : 'NULL'},
+			's2' : {'verb' : 'who' , 'pronoun' : 'NULL'},
+			's3' : {'pronoun' : 'NULL'},
+			's4' : {'verb' : 'NULL'},
+			's5' : {'verb' : 'whom'},
+			's6' : {'verb' : 'NULL'},
+			's7' : {'adjective' : 'NULL'},
+			's8' : {'noun' : 'NULL'}
+		};
+
+		var partOfSpeechList = {
+			'the' : 'article',
+			'The' : 'article',
+			'girl' : 'noun',
+			'called' : 'verb',
+			'you' : 'pronoun',
+			'is' : 'verb',
+			'my' : 'adjective',
+			'friend' : 'noun'
+		};
+
+    var fstCheck = new fst(pronounTransition , outputTransition , 's0' , 's9' , partOfSpeechList);
+    var result = fstCheck.parse(text_array);
+
+    return callback(result);
+  }
+
+  function showdialog(data , titleMessage){
 		let result = new String("");
 		for(let i of data)
 			result = result + i + "\n";
 		$("#result_string").html(result);
-    $("#rythms_detect").html(rythm_ipa);
+		$("#rythms_detect").html(titleMessage);
 		$(function(){
 			$( "#dialog" ).dialog({
 				width: 400,

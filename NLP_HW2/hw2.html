@@ -7,7 +7,10 @@
     <script src = "https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src = "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
+    <script src = "js/getPartOfSpeech.js"></script>
     <script src = "js/fsa.js"></script>
+    <script src = "js/fst.js"></script>
+
     <script src = "js/main.js"></script>
     <title>NLP homework2</title>
 
@@ -68,6 +71,44 @@
           <div id = "pinyin-check">
               <input id = "pinyin-text" type = "text" placeholder="輸入無聲調拼音" />
               <a id = "get-pinyin" class = "btn">Click</a>
+          </div>
+        </div>
+      </div>
+
+      <div class = "question-content q3-content">
+        <div class = "info-content">
+          <div class = "q">
+              <h2>第三題</h2>
+              <p>問題1 : 英文中的關係代名詞(包含關係代名詞為主詞及受詞兩種情形)</p>
+              <p>問題2 : 受詞子句重覆包孕,如:I know that he is smart. He thinks that I know that he is smart. She believes that he thinks that I know that he is smart....</p>
+              <p>問題3 : Recursive nominal modification, e.g. a student in blue jeans, a student in blue jeanswith long hair, a student in blue jeans with long hair on campus...</p>
+          </div>
+          <div id = "answer3">
+            <div>
+              <p style = "font-size:18px;"><b>&emsp;1. 以下範例的FST可以判斷該範例句子的關係代名詞who為主格"who"，或為受格"whom"</b></p>
+              <img style = "left:2%;position:relative;" src = "src/fst-1.png" />
+              <div style = "left:3%;position:relative;">
+                <u style ="font-size:18px;">測試 : </u>
+                <ol>
+                  <li>
+                    <p>
+                      <span>
+                        <i style="font-size:18px;">The girl ____ called you is my friend</i>
+                        <a id = "fst-1-1" class = "btn fst-1">Click</a>
+                      </span>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <span>
+                        <i style="font-size:18px;">The girl ____ you called is my friend</i>
+                        <a id = "fst-1-2" class = "btn fst-1">Click</a>
+                      </span>
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </div>
           </div>
         </div>
       </div>

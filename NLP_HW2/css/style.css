@@ -19,7 +19,7 @@ body {
 }
 
 .question-content {
-  background-attachment:fixed;
+
 }
 
 .info-content {
@@ -43,6 +43,12 @@ body {
   background-image : url("../src/question-div.jpg");
   background-repeat: no-repeat;
    background-position: right;
+}
+
+.q3-content {
+  background-image : url("../src/question-div.jpg");
+  text-align : left;
+  background-repeat: no-repeat;
 }
 
 #FSA-2 {
@@ -77,4 +83,9 @@ body {
 }
 .btn:active {
   transform : translateY(1px);
+}
+
+.fst-1 {
+  display: inline-block;
+  padding: 5px 15px
 }

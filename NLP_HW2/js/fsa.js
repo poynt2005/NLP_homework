@@ -1,10 +1,10 @@
 'use strict'
-function fsa_pinyin(transition , start_state , callback){
+function fsa_pinyin(transition , start_state){
   this.transition = transition;
   this.start_state = start_state;
 };
 
-fsa_pinyin.prototype.parse =  function(callback){
+fsa_pinyin.prototype.parse =  function(){
   let _state_info = [];
   let _trans = this.transition;
   let state = this.start_state;
