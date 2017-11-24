@@ -9,7 +9,7 @@
  /*content div*/
 .start-div {
 	background-image : url("../src/div-1.jpg");
-	
+
 }
 .title-div {
 	background-image : url("../src/div-0.jpg");
@@ -23,19 +23,25 @@
 .title {
 	text-align : center;
 }
+.title h1 {
+	 font-size: 80px;
+	 font-family: fantasy;
+	 color:white;
+}
+
 .title-content {
 	text-align : center;
-	animation-name: moveText-left; 
-	animation-duration: .5s; 
+	animation-name: moveText-left;
+	animation-duration: .5s;
 	animation-timing-function: ease;
-	-webkit-animation-name: moveText-left; 
-	-webkit-animation-duration: .5s; 
+	-webkit-animation-name: moveText-left;
+	-webkit-animation-duration: .5s;
 	-webkit-animation-timing-function: ease;
 	-o-animation-name: moveText-left;
-	-o-animation-duration: .5s; 
+	-o-animation-duration: .5s;
 	-o-animation-timing-function: ease;
-	-moz-animation-name: moveText-left; 
-	-moz-animation-duration: .5s; 
+	-moz-animation-name: moveText-left;
+	-moz-animation-duration: .5s;
 	-moz-animation-timing-function: ease;
 }
 
@@ -44,21 +50,21 @@
 	text-align : center;
 	top : 25%;
 	position : relative;
-	
-	animation-name: moveText-buttom; 
-	animation-duration: 1.5s; 
+
+	animation-name: moveText-buttom;
+	animation-duration: 1.5s;
 	animation-timing-function: ease;
-	-webkit-animation-name: moveText-buttom; 
-	-webkit-animation-duration: 1.5s; 
+	-webkit-animation-name: moveText-buttom;
+	-webkit-animation-duration: 1.5s;
 	-webkit-animation-timing-function: ease-out;
-	-o-animation-name: moveText-buttom; 
-	-o-animation-duration: 1.5s; 
+	-o-animation-name: moveText-buttom;
+	-o-animation-duration: 1.5s;
 	-o-animation-timing-function: ease-out;
-	-moz-animation-name: moveText-buttom; 
-	-moz-animation-duration: 1.5s; 
+	-moz-animation-name: moveText-buttom;
+	-moz-animation-duration: 1.5s;
 	-moz-animation-timing-function: ease-out;
-	
-	
+
+
 }
 
 .start-div-content {
@@ -67,18 +73,18 @@
 	position : relative;
 	color : white;
 	font-size:20px;
-	
-	animation-name: moveText-right; 
-	animation-duration: 1s; 
+
+	animation-name: moveText-right;
+	animation-duration: 1s;
 	animation-timing-function: ease;
-	-webkit-animation-name: moveText-right; 
-	-webkit-animation-duration: 1s; 
+	-webkit-animation-name: moveText-right;
+	-webkit-animation-duration: 1s;
 	-webkit-animation-timing-function: ease;
-	-o-animation-name: moveText-right; 
-	-o-animation-duration: 1s; 
+	-o-animation-name: moveText-right;
+	-o-animation-duration: 1s;
 	-o-animation-timing-function: ease;
-	-moz-animation-name: moveText-right; 
-	-moz-animation-duration: 1s; 
+	-moz-animation-name: moveText-right;
+	-moz-animation-duration: 1s;
 	-moz-animation-timing-function: ease;
 }
 
@@ -129,7 +135,16 @@
 }
 /* ----- */
 
+/*slider container*/
+.h-slide-content {
+	text-align: center;
+	top: 25%;
+	position: relative;
+	margin: auto;
+}
 
+
+/*------*/
 
 
  /*slider effect*/
@@ -139,7 +154,7 @@
 	color : white;
 	font-size : 30px;
 	text-align : center;
-	
+
 }
 
 .text-info {
@@ -177,13 +192,13 @@
 
 @keyframes fade
 {
-	from {opacity: .4} 
+	from {opacity: .4}
 	to {opacity: 1}
 }
 
 @-webkit-keyframes fade
 {
-	from {-webkit-opacity: .4} 
+	from {-webkit-opacity: .4}
 	to {-webkit-opacity: 1}
 }
 
@@ -195,7 +210,7 @@
   100% {
     transform: translateY(0);
   }
-	
+
 }
 
 @-webkit-keyframes moveText-buttom {
@@ -242,3 +257,16 @@
     transform: translateX(0);
   }
 }
+/* -------- */
+/* mobile css */
+
+@media screen and (min-width: 300px) and (max-width : 500px) {
+	.title h1{
+		font-size: 60px;
+	}
+	.h-slide-content {
+		top : 10%;
+		position: relative;
+	}
+}
+/* ---------- */
