@@ -86,13 +86,13 @@ $(document).ready(function(){
   });
 
   $("#fst-3-b").click(function(){
-    fstForSpecialParse2('article noun preposition adjective noun_r preposition adjective noun' , 1 , (result) => {
+    fstForSpecialParse2('article noun preposition adjective noun preposition adjective noun' , 1 , (result) => {
       showdialog(result , "a student in blue jeans with long hair");
     });
   });
 
   $("#fst-3-c").click(function(){
-    fstForSpecialParse2('article noun preposition adjective noun_r preposition adjective noun_r preposition noun' , 2 , (result) => {
+    fstForSpecialParse2('article noun preposition adjective noun preposition adjective noun preposition noun' , 2 , (result) => {
       showdialog(result , "a student in blue jeans with long hair on campus");
     });
   });

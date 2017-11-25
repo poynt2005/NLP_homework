@@ -49,11 +49,11 @@ function testFstParse(input_string , fsaTrans , otrans , globalOtrans ,start_sta
         return _state_info;
       }
   }
-  else{
+  else
     if(_state == fin_state){
       _state_info.push("Done!");
       return _state_info;
-    }}
+    }
 
   _state_info.push("Failed!");
   return _state_info;
@@ -131,81 +131,31 @@ function fstForSpecialParse(input_string , flag , callback){
   return callback(result);
 }
 
-/*function fstForSpecialParse2(input_string , flag , callback){
-
-  var transition = {
-    's0' : {'article' : 's1'},
-    's1' : {'noun' : 's2'},
-    's2' : {'preposition' : 's3'},
-    's3' : {'adjective' : 's4' , 'noun' : 's5'},
-    's4' : {'noun_r' : 's2'},
-  };
-
-  var oTrans1 = {
-    's0' : {'article' : 'a'},
-    's1' : {'noun' : 'student'},
-    's2' : {'preposition' : 'in'},
-    's3' : {'adjective' : 'blue'}
-  };
-  var rOTrans1 = {
-    's0' : {'article' : 'a'},
-    's4' : {'noun_r' : 'student'},
-    's2' : {'preposition' : 'in'},
-    's3' : {'adjective' : 'blue'}
-  };
-
-  var oTrans2 = {
-    's0' : {'article' : 'a'},
-    's1' : {'noun' : 'jeans'},
-    's2' : {'preposition' : 'with'},
-    's3' : {'adjective' : 'long'}
-  };
-  var rOTrans2 = {
-    's0' : {'article' : 'a'},
-    's4' : {'noun' : 'jeans'},
-    's2' : {'preposition' : 'with'},
-    's3' : {'adjective' : 'long'}
-  };
-
-  var rOTrans3 = {
-    's0' : {'article' : 'a'},
-    's2' : {'preposition' : 'on'},
-    's3' : {'noun' : 'campus'}
-  };
-
-  var gTrans = {
-
-  };
-
-  const fin_state = ['s4' , 's5'];
-  var oTransArray = new Array();
-  let recursive_times;
-
-  if(flag == 0){
-    recursive_times = 0;
-    oTransArray.push(oTrans1);
-  }
-  else if(flag == 1){
-    recursive_times = 1;
-    oTransArray.push(oTrans1);
-    oTransArray.push(rOTrans2);
-  }
-  else if(flag == 2){
-    recursive_times = 2;
-    oTransArray.push(oTrans1);
-    oTransArray.push(rOTrans2);
-    oTransArray.push(rOTrans3);
-  }
-
-  var result = testFstParse(input_string , transition , oTransArray , gTrans , 's0' , fin_state , 'noun_r' , recursive_times);
-  return callback(result);
-} */
 
 function fstForSpecialParse2(input_string , flag , callback){
 
   var input_array = input_string.split(" ");
 
-  //a student in blue jeans with long hair
+  if(flag == 0){
+    var transition1 = {
+			's0' : {'article' : 's1'},
+			's1' : {'noun' : 's2'},
+			's2' : {'preposition' : 's3'},
+			's3' : {'adjective' : 's4'},
+			's4' : {'noun' : 's5'}
+		};
+
+    var oTrans1 = {
+      's0' : {'article' : 'a'},
+			's1' : {'noun' : 'student'},
+			's2' : {'preposition' : 'in'},
+			's3' : {'adjective' : 'blue'},
+			's4' : {'noun' : 'jeans'}
+		};
+
+    var parseFlag1 = new fst(transition1 , oTrans1 , 's0' , 's5' , 0);
+    return callback(parseFlag1.parse(input_array));
+  }
   else if(flag == 1){
     var transition2 = {
       's0' : {'article' : 's1'},
