@@ -15,7 +15,7 @@ fsa_pinyin.prototype.parse =  function(){
     let info = new String("");
     info = info + ("Current state : " + state);
     state = _trans[state][input_str[i]];
-    info = info + (" Next state : " + state);
+    info = info + (" ,Next state : " + state + ";");
 
     _state_info.push(info);
   }
