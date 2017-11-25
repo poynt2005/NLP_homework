@@ -21,3 +21,14 @@
 
 
 ---------------------------------------
+## HW02
+> ### a2.py
+>>  *  class "fsa" implement the transition of "an" Pinyin
+>>  *  please insert Pinyin without tone
+
+> ### a3.py
+>> * class fst implement "fst"
+>> * question 3 : a~c
+
+> ### get more information in javascript files
+---------------------------------------
