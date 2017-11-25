@@ -12,8 +12,6 @@ $(document).ready(function(){
       $(".info-content").css("visibility" , "visible").hide().fadeIn();
       $(this).off("scroll");
     }
-
-
     });
 
 
@@ -58,14 +56,57 @@ $(document).ready(function(){
   });
 
   $("#fst-1-2").click(function(){
-     checkPronoun('The girl you called is my friend' , (result) => {
-       showdialog(result , "應填入whom");
-     });
+    checkPronoun('The girl you called is my friend' , (result) => {
+      showdialog(result , "應填入whom");
+    });
+  });
+
+  $("#fst-2-a").click(function(){
+    fstForSpecialParse('pronoun verb pronoun pronoun verb adjective' , 0 , (result) => {
+      showdialog(result , "I know that he is smart");
+    });
+  });
+
+  $("#fst-2-b").click(function(){
+    fstForSpecialParse('pronoun verb pronoun pronoun verb pronoun pronoun verb adjective' , 1 , (result) => {
+      showdialog(result , "He thinks that I know that he is smart");
+    });
+  });
+
+  $("#fst-2-c").click(function(){
+    fstForSpecialParse('pronoun verb pronoun pronoun verb pronoun pronoun verb pronoun pronoun verb adjective' , 2 , (result) => {
+      showdialog(result , "She believes that he thinks that I know that he is smart");
+    });
+  });
+
+  $("#fst-3-a").click(function(){
+    fstForSpecialParse2('article noun preposition adjective noun' , 0 , (result) => {
+      showdialog(result , "a student in blue jeans");
+    });
+  });
+
+  $("#fst-3-b").click(function(){
+    fstForSpecialParse2('article noun preposition adjective noun preposition adjective noun' , 1 , (result) => {
+      showdialog(result , "a student in blue jeans with long hair");
+    });
+  });
+
+  $("#fst-3-c").click(function(){
+    fstForSpecialParse2('article noun preposition adjective noun preposition adjective noun preposition noun' , 2 , (result) => {
+      showdialog(result , "a student in blue jeans with long hair on campus");
+    });
+  });
+
+  $("#posQueryClick").click(function(){
+    getPartOfSpeech($("#posQueryText").val() , (resp) => {
+      let convertArray = new Array(Array.from(resp));
+      alert("Part of speech : " + convertArray);
+    });
   });
 
   function parseRawArray(rawText , callback){
     rawText = rawText.toLowerCase();
-    var test_pinyin = new Array(""); //store pinyin array
+    var test_pinyin = new Array(); //store pinyin array
 
     var ian_re = new RegExp("ian$");
     if(ian_re.test(rawText)){

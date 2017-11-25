@@ -12,7 +12,7 @@ fst.prototype.parse = function(){
   let _trans = this.getTransition();
   let _out_trans = this.getOutTransition();
   let _state = this.getStartState();
-  const _fin_state = this.getAcceptState();
+  let _fin_state = this.getAcceptState();
   let _speech_list = this.getSpeechList();
 
   let input_array = arguments[0];
@@ -20,14 +20,22 @@ fst.prototype.parse = function(){
   for(let i = 0 ; i < input_array.length ;i++){
     let info = new String("");
     info = info + ("Current state : " + _state);
-    info = info + (" Current input : " + input_array[i]);
+    info = info + (" ,Current input : " + input_array[i]);
 
     let currentState = _state;
-    _state = _trans[_state][_speech_list[input_array[i]]];
-    let output = _out_trans[currentState][_speech_list[input_array[i]]];
+    if(!(_speech_list==0))
+      _state = _trans[_state][_speech_list[input_array[i]]];
+    else
+      _state = _trans[_state][input_array[i]];
+    let output;
+    if(!(_speech_list==0))
+      output = _out_trans[currentState][_speech_list[input_array[i]]];
+    else
+      output = _out_trans[currentState][input_array[i]];
 
-    info = info + (" Current output : " + output);
-    info = info + (" Next state : " + _state);
+
+    info = info + (" ,Current output : " + output);
+    info = info + (" ,Next state : " + _state + "\n;");
 
     _state_info.push(info);
   }

@@ -10,6 +10,7 @@
     <script src = "js/getPartOfSpeech.js"></script>
     <script src = "js/fsa.js"></script>
     <script src = "js/fst.js"></script>
+    <script src = "js/fst-2.js"></script>
 
     <script src = "js/main.js"></script>
     <title>NLP homework2</title>
@@ -81,12 +82,12 @@
               <h2>第三題</h2>
               <p>問題1 : 英文中的關係代名詞(包含關係代名詞為主詞及受詞兩種情形)</p>
               <p>問題2 : 受詞子句重覆包孕,如:I know that he is smart. He thinks that I know that he is smart. She believes that he thinks that I know that he is smart....</p>
-              <p>問題3 : Recursive nominal modification, e.g. a student in blue jeans, a student in blue jeanswith long hair, a student in blue jeans with long hair on campus...</p>
+              <p>問題3 : Recursive nominal modification, e.g. a student in blue jeans, a student in blue jeans with long hair, a student in blue jeans with long hair on campus...</p>
           </div>
           <div id = "answer3">
             <div>
               <p style = "font-size:18px;"><b>&emsp;1. 以下範例的FST可以判斷該範例句子的關係代名詞who為主格"who"，或為受格"whom"</b></p>
-              <img style = "left:2%;position:relative;" src = "src/fst-1.png" />
+              <img style = "left:2%;width:auto;position:relative;" src = "src/fst-1.png" />
               <div style = "left:3%;position:relative;">
                 <u style ="font-size:18px;">測試 : </u>
                 <ol>
@@ -109,13 +110,53 @@
                 </ol>
               </div>
             </div>
+            <div>
+              <p style = "font-size:18px;"><b>&emsp;2. 判斷問題2之句型"</b></p>
+              <div style = "left:6%;width:auto;position:relative;">
+                <p>
+                  <a id = "fst-2-a" class = "btn fst-1">Click</a>
+                  a.&emsp;<i style="font-size:18px;">pronoun verb pronoun pronoun verb adjective</i>
+                </p>
+                <p>
+                  <a id = "fst-2-b" class = "btn fst-1">Click</a>
+                  b.&emsp;<i style="font-size:18px;">pronoun verb pronoun pronoun verb pronoun pronoun verb adjective</i>
+                </p>
+                <p>
+                  <a id = "fst-2-c" class = "btn fst-1">Click</a>
+                  c.&emsp;<i style="font-size:18px;">pronoun verb pronoun pronoun verb pronoun pronoun verb pronoun pronoun verb adjective</i>
+                </p>
+              </div>
+            </div>
+            <div>
+              <p style = "font-size:18px;"><b>&emsp;3. 判斷問題3之句型"</b></p>
+              <div style = "left:6%;width:auto;position:relative;">
+                <p>
+                  <a id = "fst-3-a" class = "btn fst-1">Click</a>
+                  a.&emsp;<i style="font-size:18px;">article noun preposition adjective noun</i>
+                </p>
+                <p>
+                  <a id = "fst-3-b" class = "btn fst-1">Click</a>
+                  b.&emsp;<i style="font-size:18px;">article noun preposition adjective noun preposition adjective noun</i>
+                </p>
+                <p>
+                  <a id = "fst-3-c" class = "btn fst-1">Click</a>
+                  c.&emsp;<i style="font-size:18px;">article noun preposition adjective noun preposition adjective noun preposition noun</i>
+                </p>
+              </div>
+            </div>
+            <div>
+              <p style="font-size:18px;"><b>&emsp;4. 補充 : 詞性查詢</b></p>
+            <span style = "left:6%;width:auto;position:relative;">
+              <p>
+                <input id = "posQueryText" type = "text" placeholder="輸入英文單詞" />
+                <a id = "posQueryClick" class = "btn">Click</a>
+              <p>
+            </span>
+            </div>
           </div>
         </div>
       </div>
-
     </div>
-
-
 
     <div id="dialog" title="Result-Dialog">
       <h2 id = "rythms_detect"></h2>

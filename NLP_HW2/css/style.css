@@ -48,6 +48,7 @@ body {
 .q3-content {
   background-image : url("../src/question-div.jpg");
   text-align : left;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -56,7 +57,7 @@ body {
   position : relative;
 }
 
-#pinyin-text {
+input[type = "text"] {
   padding : 8px 30px;
   outline : none;
 }
@@ -88,4 +89,9 @@ body {
 .fst-1 {
   display: inline-block;
   padding: 5px 15px
+}
+
+#posQueryClick {
+  display: inline-block;
+  padding: 8px 15px;
 }
