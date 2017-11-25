@@ -68,13 +68,13 @@ $(document).ready(function(){
   });
 
   $("#fst-2-b").click(function(){
-    fstForSpecialParse('pronoun verb pronoun pronoun verb pronoun pronoun verb adjective' , 1 , (result) => {
+    fstForSpecialParse('pronoun verb pronoun pronoun_r verb pronoun pronoun verb adjective' , 1 , (result) => {
       showdialog(result , "He thinks that I know that he is smart");
     });
   });
 
   $("#fst-2-c").click(function(){
-    fstForSpecialParse('pronoun verb pronoun pronoun verb pronoun pronoun verb pronoun pronoun verb adjective' , 2 , (result) => {
+    fstForSpecialParse('pronoun verb pronoun pronoun_r verb pronoun pronoun_r verb pronoun pronoun verb adjective' , 2 , (result) => {
       showdialog(result , "She believes that he thinks that I know that he is smart");
     });
   });
@@ -86,13 +86,13 @@ $(document).ready(function(){
   });
 
   $("#fst-3-b").click(function(){
-    fstForSpecialParse2('article noun preposition adjective noun preposition adjective noun' , 1 , (result) => {
+    fstForSpecialParse2('article noun preposition adjective noun_r preposition adjective noun' , 1 , (result) => {
       showdialog(result , "a student in blue jeans with long hair");
     });
   });
 
   $("#fst-3-c").click(function(){
-    fstForSpecialParse2('article noun preposition adjective noun preposition adjective noun preposition noun' , 2 , (result) => {
+    fstForSpecialParse2('article noun preposition adjective noun_r preposition adjective noun_r preposition noun' , 2 , (result) => {
       showdialog(result , "a student in blue jeans with long hair on campus");
     });
   });
@@ -195,8 +195,11 @@ $(document).ready(function(){
 
   function showdialog(data , titleMessage){
 		let result = new String("");
-		for(let i of data)
-			result = result + i + "\n";
+    let markString = new RegExp("output");
+
+		for(let i of data){
+			result = result + i + "<br>";
+    }
 		$("#result_string").html(result);
 		$("#rythms_detect").html(titleMessage);
 		$(function(){
