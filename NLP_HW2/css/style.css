@@ -14,6 +14,16 @@ body {
   color : white;
 }
 
+#nav-container {
+  top : 0%;
+  right : 1%;
+  position:absolute;
+}
+
+#nav-container ul li {
+    display : inline-block;
+}
+
 .main-content {
   height : 100vh;
 }
