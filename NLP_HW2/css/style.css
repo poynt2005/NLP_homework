@@ -28,10 +28,6 @@ body {
   height : 100vh;
 }
 
-.question-content {
-
-}
-
 .info-content {
   visibility : hidden;
 }
@@ -40,7 +36,19 @@ body {
   visibility : visible;
 }
 
+#fst-image-togger::before {
+  content : " [";
+}
 
+#fst-image-togger::after {
+  content : " ]";
+}
+
+#fst-image {
+  left:2%;
+  width:auto;
+  position:relative;
+}
 
 .q1-content {
   text-align : left;

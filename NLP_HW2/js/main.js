@@ -51,6 +51,16 @@ $(document).ready(function(){
     });
   });
 
+  $("#fst-image-container").hide();
+
+  $("#fst-image-togger").click(function(){
+    $("#fst-image-container").slideToggle("slow");
+
+    $(this).html(() => {
+      return ($(this).html() == "<i>展開圖片</i>" ? "<i>收起圖片</i>" : "<i>展開圖片</i>");
+    });
+    
+  });
 
   $("#fst-1-1").click(function(){
      checkPronoun('The girl called you is my friend' , (result) => {
