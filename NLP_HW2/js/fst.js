@@ -1,10 +1,30 @@
 'use strict'
 var fst = function(transition , outTransition , start_state , fin_state , speech_list){
-  this.getTransition = () => {return transition;}
-  this.getOutTransition = () => {return outTransition;}
-  this.getStartState = () => {return start_state;}
-  this.getAcceptState = () => {return fin_state;}
-  this.getSpeechList = () => {return speech_list;}
+
+  /*
+    transition : fsa getTransition
+    outTransition : output transition
+  */
+  this.getTransition = () => {
+    return transition;
+  }
+
+  this.getOutTransition = () => {
+    return outTransition;
+  }
+
+  this.getStartState = () => {
+    return start_state;
+  }
+
+  this.getAcceptState = () => {
+    return fin_state;
+  }
+
+  this.getSpeechList = () => {
+    return speech_list;
+  }
+
 };
 
 fst.prototype.parse = function(){
@@ -40,6 +60,7 @@ fst.prototype.parse = function(){
     _state_info.push(info);
   }
 
+  /*if accept state is a array */
   if(Array.isArray(_fin_state)){
     for(let i of _fin_state)
       if(_state == i){

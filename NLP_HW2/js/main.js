@@ -2,6 +2,7 @@
 
 $(document).ready(function(){
 
+  //listen scroll event
   $(window).scroll(function(){
     var cententDivHeight = $(".main-content").height();
     var viewPoint = $(window).height();
@@ -13,6 +14,7 @@ $(document).ready(function(){
       $(this).off("scroll");
     }
     });
+
 
 
   $("#get-pinyin").click(function(){
@@ -49,11 +51,13 @@ $(document).ready(function(){
     });
   });
 
+
   $("#fst-1-1").click(function(){
      checkPronoun('The girl called you is my friend' , (result) => {
        showdialog(result , "應填入who");
      });
   });
+
 
   $("#fst-1-2").click(function(){
     checkPronoun('The girl you called is my friend' , (result) => {
@@ -61,41 +65,49 @@ $(document).ready(function(){
     });
   });
 
+  //I know that he is smart
   $("#fst-2-a").click(function(){
     fstForSpecialParse('pronoun verb pronoun pronoun verb adjective' , 0 , (result) => {
       showdialog(result , "I know that he is smart");
     });
   });
 
+  //He thinks that I know that he is smart
   $("#fst-2-b").click(function(){
     fstForSpecialParse('pronoun verb pronoun pronoun_r verb pronoun pronoun verb adjective' , 1 , (result) => {
       showdialog(result , "He thinks that I know that he is smart");
     });
   });
 
+  //She believes that he thinks that I know that he is smart
   $("#fst-2-c").click(function(){
     fstForSpecialParse('pronoun verb pronoun pronoun_r verb pronoun pronoun_r verb pronoun pronoun verb adjective' , 2 , (result) => {
       showdialog(result , "She believes that he thinks that I know that he is smart");
     });
   });
 
+  //a student in blue jeans
   $("#fst-3-a").click(function(){
     fstForSpecialParse2('article noun preposition adjective noun' , 0 , (result) => {
       showdialog(result , "a student in blue jeans");
     });
   });
 
+  //a student in blue jeans with long hair
   $("#fst-3-b").click(function(){
     fstForSpecialParse2('article noun preposition adjective noun preposition_r adjective noun' , 1 , (result) => {
-      showdialog(result , "a student in blue jeans with long hair");
+        showdialog(result , "a student in blue jeans with long hair");
     });
   });
 
+
+  //a student in blue jeans with long hair on campus
   $("#fst-3-c").click(function(){
     fstForSpecialParse2('article noun preposition adjective noun preposition_r adjective noun preposition_r noun' , 2 , (result) => {
       showdialog(result , "a student in blue jeans with long hair on campus");
     });
   });
+
 
   $("#posQueryClick").click(function(){
     getPartOfSpeech($("#posQueryText").val() , (resp) => {
@@ -193,6 +205,8 @@ $(document).ready(function(){
     return callback(result);
   }
 
+
+  //jquery ui dialog
   function showdialog(data , titleMessage){
 		let result = new String("");
     let markString = new RegExp("output");
@@ -200,8 +214,10 @@ $(document).ready(function(){
 		for(let i of data){
 			result = result + i + "<br>";
     }
+
 		$("#result_string").html(result);
 		$("#rythms_detect").html(titleMessage);
+
 		$(function(){
 			$( "#dialog" ).dialog({
 				width: 400,

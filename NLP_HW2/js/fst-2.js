@@ -1,15 +1,32 @@
 'use strict'
+
 /*for(i in currentOutputTransition)
   for(j in currentOutputTransition[i])
     alert(i + " : {" + j + " : " + currentOutputTransition[i][j] + "}");
-    */
+*/
+
 function testFstParse(input_string , fsaTrans , otrans , globalOtrans ,start_state, fin_state , recursive_determine_arc , recursive_times){
+
+
+    /*
+      otrans : an array contain a list of output transitions
+
+      globalOtrans : a dictionary contain the transition own by callback
+
+      recursive_determine_arc : a string that indicates which arc that recursive start
+
+      recursive_times : a int that represent total recursive times
+
+    */
+
+
   var recursiveSentenseCount = otrans.length;
   var _state_info = new Array();
   var input_array = input_string.split(" ");
   var  _state = start_state;
   var re = new RegExp("_r");
 
+  //get the dirst transition from array
   let currentOutputTransition = otrans.shift();
   for(let i = 0 ; i < input_array.length ; i++){
 
@@ -19,21 +36,32 @@ function testFstParse(input_string , fsaTrans , otrans , globalOtrans ,start_sta
     let current_input = input_array[i].replace(re , "");
     info = info + (" ,Current input : " + current_input);
     let output;
+
+    //if start to recursive
     if(input_array[i] == recursive_determine_arc){
+
+      //get the next output transition
       currentOutputTransition = otrans.shift();
-    //alert(currentState);
+
+
+      //decrease recursive times by sub 1
       recursive_times--;
+
+      //get output from new output transition
       output = currentOutputTransition[_state][input_array[i]];
     }
     else{
+
+      //if there is no recursive
       if(!recursive_times)
-        Object.assign(currentOutputTransition , globalOtrans);
+        Object.assign(currentOutputTransition , globalOtrans); //append the global transition to current transition
 
 
       output = currentOutputTransition[_state][input_array[i]];
 
     }
 
+    //get next state from fsa transition
     _state = fsaTrans[_state][input_array[i]];
     info = info + (" ,Current output : " + output);
     info = info + (" ,Next state : " + _state);
