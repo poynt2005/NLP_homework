@@ -16,9 +16,8 @@ function testFstParse(input_string , fsaTrans , otrans , globalOtrans ,start_sta
     let info = new String("");
     info = info + ("Current state : " + _state);
 
-    let current_put = input_array[i].replace(re , "");
-    info = info + (" ,Current input : " + current_put);
-    let currentState = _state;
+    let current_input = input_array[i].replace(re , "");
+    info = info + (" ,Current input : " + current_input);
     let output;
     if(input_array[i] == recursive_determine_arc){
       currentOutputTransition = otrans.shift();
@@ -131,95 +130,60 @@ function fstForSpecialParse(input_string , flag , callback){
   return callback(result);
 }
 
-
 function fstForSpecialParse2(input_string , flag , callback){
+  var transition = {
+    's0' : {'article' : 's1'},
+    's1' : {'noun' : 's2'},
 
-  var input_array = input_string.split(" ");
+    's2' : {'preposition' : 's3'},
+    's3' : {'adjective' : 's4' , 'noun' : 's6'},
+    's4' : {'noun' : 's5'},
+    's5' : {'preposition_r' : 's3'}
+  };
 
+  var oTrans1 = {
+    's0' : {'article' : 'a'},
+    's1' : {'noun' : 'student'},
+
+    's2' : {'preposition' : 'in'},
+    's3' : {'adjective' : 'blue'},
+    's4' : {'noun' : 'jeans'}
+  };
+
+  var rOTrans2 = {
+    's5' : {'preposition_r' : 'with'},
+    's3' : {'adjective' : 'long'},
+    's4' : {'noun' : 'hair'}
+  };
+
+  var rOTrans3 = {
+    's5' : {'preposition_r' : 'on'},
+    's3' : {'noun' : 'campus'}
+  };
+
+  var gTrans = {
+
+  };
+
+  var oTransArray = new Array();
+
+  let recursive_times;
   if(flag == 0){
-    var transition1 = {
-			's0' : {'article' : 's1'},
-			's1' : {'noun' : 's2'},
-			's2' : {'preposition' : 's3'},
-			's3' : {'adjective' : 's4'},
-			's4' : {'noun' : 's5'}
-		};
-
-    var oTrans1 = {
-      's0' : {'article' : 'a'},
-			's1' : {'noun' : 'student'},
-			's2' : {'preposition' : 'in'},
-			's3' : {'adjective' : 'blue'},
-			's4' : {'noun' : 'jeans'}
-		};
-
-    var parseFlag1 = new fst(transition1 , oTrans1 , 's0' , 's5' , 0);
-    return callback(parseFlag1.parse(input_array));
+    recursive_times = 0;
+    oTransArray.push(oTrans1);
   }
   else if(flag == 1){
-    var transition2 = {
-      's0' : {'article' : 's1'},
-
-			's1' : {'noun' : 's2'},
-			's2' : {'preposition' : 's3'},
-			's3' : {'adjective' : 's4'},
-
-			's4' : {'noun' : 's5'},
-      's5' : {'preposition' : 's6'},
-      's6' : {'adjective' : 's7'},
-
-      's7' : {'noun' : 's8'}
-		};
-
-    var oTrans2 = {
-      's0' : {'article' : 'a'},
-
-			's1' : {'noun' : 'student'},
-			's2' : {'preposition' : 'in'},
-			's3' : {'adjective' : 'blue'},
-
-			's4' : {'noun' : 'jeans'},
-      's5' : {'preposition' : 'with'},
-      's6' : {'adjective' : 'long'},
-
-      's7' : {'noun' : 'hair'}
-		};
-
-    var parseFlag2 = new fst(transition2 , oTrans2 , 's0' , 's8' , 0);
-    return callback(parseFlag2.parse(input_array));
+    recursive_times = 1;
+    oTransArray.push(oTrans1);
+    oTransArray.push(rOTrans2);
   }
-  //a student in blue jeans with long hair on campus
-  else{
-    var transition3 = {
-      's0' : {'article' : 's1'},
-
-			's1' : {'noun' : 's2'},
-			's2' : {'preposition' : 's3'},
-			's3' : {'adjective' : 's4'},
-
-			's4' : {'noun' : 's5'},
-      's5' : {'preposition' : 's6'},
-      's6' : {'adjective' : 's7'},
-
-      's7' : {'noun' : 's8'},
-      's8' : {'preposition' : 's9'},
-      's9' : {'noun' : 's10'}
-		};
-
-    var oTrans3 = {
-      's0' : {'article' : 'a'},
-			's1' : {'noun' : 'student'},
-			's2' : {'preposition' : 'in'},
-			's3' : {'adjective' : 'blue'},
-			's4' : {'noun' : 'jeans'},
-      's5' : {'preposition' : 'with'},
-      's6' : {'adjective' : 'long'},
-      's7' : {'noun' : 'hair'},
-      's8' : {'preposition' : 'on'},
-      's9' : {'noun' : 'campus'}
-		};
-
-    var parseFlag3 = new fst(transition3 , oTrans3 , 's0' , 's10' , 0);
-    return callback(parseFlag3.parse(input_array));
+  else if(flag == 2){
+    recursive_times = 2;
+    oTransArray.push(oTrans1);
+    oTransArray.push(rOTrans2);
+    oTransArray.push(rOTrans3);
   }
+
+  var result = testFstParse(input_string , transition , oTransArray , gTrans , 's0' , ['s5' , 's6'] , 'preposition_r' , recursive_times);
+  return callback(result);
 }
