@@ -1,0 +1,28 @@
+body {
+  text-align: center;
+}
+
+
+
+.navbar-header a {
+  font-size: 20px;
+}
+.navbar-nav {
+  font-size: 16px;
+}
+
+.topic-bg {
+  padding: 100px 0;
+  background: -webkit-linear-gradient(#ccddff, #ffffff); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#ccddff, #ffffff); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#ccddff, #ffffff); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#ccddff, #ffffff); /* Standard syntax */
+}
+
+.topic-container {
+  margin-top: 30px;
+}
+
+.btn {
+  font-size: 16px;
+}

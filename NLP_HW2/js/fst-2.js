@@ -1,7 +1,7 @@
 'use strict'
 
-/*for(i in currentOutputTransition)
-  for(j in currentOutputTransition[i])
+/*for(let i in currentOutputTransition)
+  for(let j in currentOutputTransition[i])
     alert(i + " : {" + j + " : " + currentOutputTransition[i][j] + "}");
 */
 

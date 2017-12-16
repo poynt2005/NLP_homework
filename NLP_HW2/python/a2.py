@@ -341,6 +341,6 @@ def main():
     print('a student in blue jeans with long hair on campus : article noun preposition adjective noun preposition adjective noun preposition noun')
     print('\n'.join([str(i) for i in answer3_c(2)]) ,sep = '\n')
     print()
-
+    fuck()r
 if __name__ == '__main__':
     main()

@@ -46,9 +46,11 @@ body {
 
 #fst-image {
   left:2%;
-  width:auto;
+  
   position:relative;
+
 }
+
 
 .q1-content {
   text-align : left;
